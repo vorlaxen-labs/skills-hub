@@ -5,14 +5,14 @@
 | | |
 |---|---|
 | **Hub ID** | `vorlaxen-skills-hub` |
-| **Release** | [`v1.0.0`](https://github.com/vorlaxen-labs/vorlaxen-skills-hub/releases/tag/v1.0.0) |
+| **Release** | [`v1.0.1`](https://github.com/vorlaxen-labs/skills-hub/releases/tag/v1.0.1) |
 | **Catalog file** | [`agent-skills.hub.json`](./agent-skills.hub.json) |
 | **CLI** | [`@vorlaxen-labs/agent-skills`](https://github.com/vorlaxen-labs/Agent-Skills) |
-| **Default GitHub source** | [`vorlaxen-labs/vorlaxen-skills-hub`](https://github.com/vorlaxen-labs/vorlaxen-skills-hub) |
+| **GitHub repository** | [`vorlaxen-labs/skills-hub`](https://github.com/vorlaxen-labs/skills-hub) |
 
 When you run `npx @vorlaxen-labs/agent-skills hub add vorlaxen-skills-hub`, the CLI resolves **this repository**. It is the central distribution point for Vorlaxen-maintained skills — not a fork, mirror, or third-party collection.
 
-[![Release](https://img.shields.io/github/v/release/vorlaxen-labs/vorlaxen-skills-hub?display_name=tag)](https://github.com/vorlaxen-labs/vorlaxen-skills-hub/releases/latest)
+[![Release](https://img.shields.io/github/v/release/vorlaxen-labs/skills-hub?display_name=tag)](https://github.com/vorlaxen-labs/skills-hub/releases/latest)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![Spec](https://img.shields.io/badge/Spec-SKILL--SPEC-blue)](https://github.com/vorlaxen-labs/Agent-Skills/blob/main/SKILL-SPEC.md)
 
@@ -53,7 +53,7 @@ npx @vorlaxen-labs/agent-skills add hub:vorlaxen-skills-hub -s bar-js -y
 Local development (this checkout):
 
 ```bash
-npx @vorlaxen-labs/agent-skills hub add /path/to/vorlaxen-skills-hub
+npx @vorlaxen-labs/agent-skills hub add /path/to/skills-hub
 npx @vorlaxen-labs/agent-skills add hub:vorlaxen-skills-hub -s bar-js -s huk-js -y
 ```
 

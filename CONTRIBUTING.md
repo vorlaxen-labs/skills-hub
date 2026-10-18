@@ -1,4 +1,4 @@
-# Contributing to vorlaxen-skills-hub
+# Contributing to skills-hub
 
 This repo is a **hub**, not the loader CLI. The CLI lives in [Agent-Skills](https://github.com/vorlaxen-labs/Agent-Skills).
 

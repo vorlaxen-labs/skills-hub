@@ -1,6 +1,6 @@
 # Repository SEO (maintainer notes)
 
-GitHub discovery fields for **vorlaxen-skills-hub** (official Vorlaxen default hub).
+GitHub discovery fields for **skills-hub** (official Vorlaxen default hub).
 
 ## Short description (GitHub About)
 
@@ -12,4 +12,4 @@ Official Vorlaxen Agent Skills hub — default catalog `vorlaxen-skills-hub` for
 
 ## Primary keywords
 
-Vorlaxen skills hub, agent skills catalog, Cursor skills, AI coding agent skills, bar-js skill, huk-js skill, vorlaxen-skills-hub
+Vorlaxen skills hub, skills-hub, agent skills catalog, Cursor skills, AI coding agent skills, bar-js skill, huk-js skill, vorlaxen-skills-hub
