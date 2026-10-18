@@ -34,4 +34,5 @@ for (const [alias, entry] of Object.entries(raw.skills)) {
   }
 }
 
-console.log(`OK: ${Object.keys(raw.skills).length} skill(s) in ${raw.id}`);
+const aliases = Object.keys(raw.skills).sort();
+console.log(`OK: ${aliases.length} skill(s) in ${raw.id}: ${aliases.join(", ")}`);

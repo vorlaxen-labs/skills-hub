@@ -64,6 +64,23 @@ npx @vorlaxen-labs/agent-skills add hub:vorlaxen-skills-hub -s bar-js -y
 npm run check
 ```
 
+## Troubleshooting
+
+`hub show` or `hub list --skills` lists only `bar-js` while this repo’s manifest has two entries: the CLI is using a **stale hub catalog cache**, not the current `agent-skills.hub.json`.
+
+Refresh the cache, then list again:
+
+```bash
+npx @vorlaxen-labs/agent-skills hub update vorlaxen-skills-hub
+npx @vorlaxen-labs/agent-skills hub list --skills
+```
+
+Install into a project (Cursor reads `.cursor/skills/<name>/SKILL.md`):
+
+```bash
+npx @vorlaxen-labs/agent-skills add hub:vorlaxen-skills-hub -s huk-js -y
+```
+
 ## Contributing
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md). Loader and hub protocol changes belong in [Agent-Skills](https://github.com/vorlaxen-labs/Agent-Skills), not here.
