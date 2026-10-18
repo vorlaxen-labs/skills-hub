@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vorlaxen-labs/Agent-Skills/main/docs/schemas/agent-skills-hub-v1.schema.json",
+  "version": 1,
+  "id": "vorlaxen-skills-hub",
+  "skills": {
+    "bar-js": {
+      "source": "./skills/bar-js",
+      "description": "Full BaR knowledge: envelope schema, ResponseBuilder, .as presets, paginate, wrap, hooks, adapters, validationError, normalizeValidationErrors, integration with huk-js."
+    },
+    "huk-js": {
+      "source": "./skills/huk-js",
+      "description": "Full HuK knowledge: all modules and subpaths, Turkish slugify, validation helpers, crypto/storage/SSR, fn/is, scenarios, integration with bar-js."
+    }
+  }
+}
