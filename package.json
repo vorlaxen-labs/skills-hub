@@ -2,7 +2,7 @@
   "name": "skills-hub",
   "version": "1.0.1",
   "private": true,
-  "description": "Official Vorlaxen Agent Skills hub — default catalog (vorlaxen-skills-hub) for Cursor and AI coding agents: bar-js, huk-js, and future Vorlaxen skill packs.",
+  "description": "agent-skills.hub.json catalog (id vorlaxen-skills-hub) and skill packs for @vorlaxen-labs/bar-js and @vorlaxen-labs/huk-js.",
   "license": "MIT",
   "homepage": "https://github.com/vorlaxen-labs/skills-hub#readme",
   "repository": {

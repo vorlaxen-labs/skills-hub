@@ -1,95 +1,73 @@
-# Vorlaxen Skills Hub
+# skills-hub
 
-**The official, default skill hub for [Vorlaxen Agent Skills](https://github.com/vorlaxen-labs/Agent-Skills)** — a curated catalog of agent skill packs for AI coding assistants (Cursor, Claude Code, and any client that supports the Agent Skills format).
+Git repository for the default Vorlaxen [Agent Skills](https://github.com/vorlaxen-labs/Agent-Skills) hub catalog: `agent-skills.hub.json` plus installable skill trees under `skills/`.
 
-| | |
-|---|---|
-| **Hub ID** | `vorlaxen-skills-hub` |
-| **Release** | [`v1.0.1`](https://github.com/vorlaxen-labs/skills-hub/releases/tag/v1.0.1) |
-| **Catalog file** | [`agent-skills.hub.json`](./agent-skills.hub.json) |
-| **CLI** | [`@vorlaxen-labs/agent-skills`](https://github.com/vorlaxen-labs/Agent-Skills) |
-| **GitHub repository** | [`vorlaxen-labs/skills-hub`](https://github.com/vorlaxen-labs/skills-hub) |
-
-When you run `npx @vorlaxen-labs/agent-skills hub add vorlaxen-skills-hub`, the CLI resolves **this repository**. It is the central distribution point for Vorlaxen-maintained skills — not a fork, mirror, or third-party collection.
+| Field | Value |
+|-------|--------|
+| Hub catalog `id` | `vorlaxen-skills-hub` |
+| Manifest | [`agent-skills.hub.json`](./agent-skills.hub.json) (schema version `1`) |
+| CLI | [`@vorlaxen-labs/agent-skills`](https://github.com/vorlaxen-labs/Agent-Skills) |
+| Repository | [`vorlaxen-labs/skills-hub`](https://github.com/vorlaxen-labs/skills-hub) |
+| Release | [`v1.0.1`](https://github.com/vorlaxen-labs/skills-hub/releases/tag/v1.0.1) |
 
 [![Release](https://img.shields.io/github/v/release/vorlaxen-labs/skills-hub?display_name=tag)](https://github.com/vorlaxen-labs/skills-hub/releases/latest)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
-[![Spec](https://img.shields.io/badge/Spec-SKILL--SPEC-blue)](https://github.com/vorlaxen-labs/Agent-Skills/blob/main/SKILL-SPEC.md)
 
-## Why this hub exists
+## How the CLI uses this repo
 
-Agent skills teach coding agents **how to use libraries correctly** (APIs, envelopes, validation, integrations) without guessing. This hub bundles production-ready skills for the Vorlaxen JavaScript stack and follows the [Agent Skills hub schema](https://github.com/vorlaxen-labs/Agent-Skills).
-
-Use this repo when you want:
-
-- One command to subscribe to the **canonical** Vorlaxen skill catalog
-- Versioned skill packs under `skills/` with deep `references/` docs
-- A hub `id` that stays stable across machines and CI
-
-## Skill catalog
-
-| Alias | Package / topic | Install alias |
-|-------|-----------------|---------------|
-| [`bar-js`](./skills/bar-js/) | [@vorlaxen-labs/bar-js](https://github.com/vorlaxen-labs/bar-js) — JSON API envelopes, ResponseBuilder, Express/Fastify adapters | `-s bar-js` |
-| [`huk-js`](./skills/huk-js/) | [@vorlaxen-labs/huk-js](https://github.com/vorlaxen-labs/huk-js) — tree-shakable utilities, Turkish slugify, SSR-safe helpers | `-s huk-js` |
-
-Summaries live in [`agent-skills.hub.json`](./agent-skills.hub.json); each skill’s entry point is `skills/<alias>/SKILL.md`.
-
-## Quick start
-
-Subscribe to the hub and install skills (GitHub default):
+`hub add <id>` resolves shorthand ids to `vorlaxen-labs/<id>` (see Agent-Skills `defaultHubRepoSource`). For this catalog, the stable subscription key is the manifest **`id`**, not the GitHub repo name:
 
 ```bash
 npx @vorlaxen-labs/agent-skills hub add vorlaxen-skills-hub
+# equivalent explicit source:
+npx @vorlaxen-labs/agent-skills hub add vorlaxen-labs/skills-hub
+```
+
+Skills install from the cached catalog:
+
+```bash
 npx @vorlaxen-labs/agent-skills add hub:vorlaxen-skills-hub -s bar-js -s huk-js -y
 ```
 
-Install only what you need:
+Each entry in `agent-skills.hub.json` points at a directory with a root `SKILL.md` (see [SKILL-SPEC](https://github.com/vorlaxen-labs/Agent-Skills/blob/main/SKILL-SPEC.md)). Reference material lives beside the skill under `references/`.
 
-```bash
-npx @vorlaxen-labs/agent-skills add hub:vorlaxen-skills-hub -s bar-js -y
+## Catalog (current)
+
+| Alias | Upstream package | Skill entry |
+|-------|------------------|-------------|
+| `bar-js` | [@vorlaxen-labs/bar-js](https://github.com/vorlaxen-labs/bar-js) | [`skills/bar-js/SKILL.md`](./skills/bar-js/SKILL.md) |
+| `huk-js` | [@vorlaxen-labs/huk-js](https://github.com/vorlaxen-labs/huk-js) | [`skills/huk-js/SKILL.md`](./skills/huk-js/SKILL.md) |
+
+`bar-js` covers BaR envelopes, `ResponseBuilder`, Express/Fastify adapters, validation error mapping, and cross-package use with HuK. `huk-js` covers module subpaths, Turkish slugify, SSR/storage constraints, and BaR boundary patterns.
+
+## Layout
+
+```
+agent-skills.hub.json
+skills/<alias>/SKILL.md
+skills/<alias>/references/*.md
+scripts/validate-hub.mjs
 ```
 
-Local development (this checkout):
+## Local checkout
 
 ```bash
 npx @vorlaxen-labs/agent-skills hub add /path/to/skills-hub
-npx @vorlaxen-labs/agent-skills add hub:vorlaxen-skills-hub -s bar-js -s huk-js -y
+npx @vorlaxen-labs/agent-skills add hub:vorlaxen-skills-hub -s bar-js -y
 ```
 
-## Repository layout
+## Validation
 
-```
-agent-skills.hub.json    # Hub manifest (required); id must remain vorlaxen-skills-hub
-skills/
-  bar-js/
-    SKILL.md
-    references/          # api-reference, adapters, chaining, validation, huk integration
-  huk-js/
-    SKILL.md
-    references/          # api-complete, scenarios, production, bar integration
-scripts/
-  validate-hub.mjs       # npm run check
-```
-
-Authoring rules: [Agent-Skills SKILL-SPEC](https://github.com/vorlaxen-labs/Agent-Skills/blob/main/SKILL-SPEC.md).
-
-## Validate locally
+`npm run check` loads the manifest, asserts `version === 1` and `id === vorlaxen-skills-hub`, and verifies each catalog `source` contains `SKILL.md`.
 
 ```bash
 npm run check
 ```
 
-## Related projects
-
-- **[Agent-Skills](https://github.com/vorlaxen-labs/Agent-Skills)** — CLI, hub protocol, and skill installation
-- **[bar-js](https://github.com/vorlaxen-labs/bar-js)** — BaR (Build a Response) for consistent JSON APIs
-- **[huk-js](https://github.com/vorlaxen-labs/huk-js)** — HuK utility toolkit
-
 ## Contributing
 
-This repository **is the hub**; the loader lives in Agent-Skills. To add or update a skill, follow [CONTRIBUTING.md](./CONTRIBUTING.md): add `skills/<alias>/`, register in `agent-skills.hub.json`, run `npm run check`, open a PR.
+See [CONTRIBUTING.md](./CONTRIBUTING.md). Loader and hub protocol changes belong in [Agent-Skills](https://github.com/vorlaxen-labs/Agent-Skills), not here.
 
 ## License
 
-MIT — see [LICENSE](./LICENSE).
+MIT — [LICENSE](./LICENSE).
