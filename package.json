@@ -2,7 +2,7 @@
   "name": "skills-hub",
   "version": "1.0.1",
   "private": true,
-  "description": "agent-skills.hub.json catalog (id vorlaxen-skills-hub) and skill packs for @vorlaxen-labs/bar-js and @vorlaxen-labs/huk-js.",
+  "description": "Official vorlaxen-skills-hub: Agent Skills remote catalog and SKILL.md packs (bar-js, huk-js) for Cursor, Claude Code, and Copilot via @vorlaxen-labs/agent-skills.",
   "license": "MIT",
   "homepage": "https://github.com/vorlaxen-labs/skills-hub#readme",
   "repository": {
@@ -14,16 +14,25 @@
   },
   "keywords": [
     "agent-skills",
-    "vorlaxen",
-    "cursor",
-    "ai-agents",
+    "vorlaxen-skills-hub",
+    "skill-md",
     "skill-hub",
+    "cursor",
+    "cursor-ide",
+    "claude-code",
+    "github-copilot",
+    "ai-agents",
     "coding-agents",
+    "llm",
+    "npx",
+    "vorlaxen",
     "bar-js",
     "huk-js",
     "typescript",
-    "llm",
-    "mcp"
+    "express",
+    "fastify",
+    "mcp",
+    "developer-tools"
   ],
   "scripts": {
     "check": "node scripts/validate-hub.mjs"
